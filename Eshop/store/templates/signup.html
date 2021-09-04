@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="p-4 m-4">
+
+        <div class="col-lg-5 mx-auto ">
+            <h3 class="text-center mt-4 mb-4 alert alert- border-rounded border-warning">Create an Account</h3>
+            <form action="/signup" method="POST">
+
+                  {% csrf_token %}
+
+                  {% if error %}
+
+                  <div class="alert alert-danger" role="alert">
+                    {{error}}
+                  </div>
+
+                  {% endif%}
+
+
+
+                <!--First Name-->
+             <div class="form-group ">
+               <label for="">First Name</label>
+               <input type="text" name="firstname" id="" value="{{values.first_name}}"
+               class="form-control" >
+             </div> 
+
+             <!--Last Name-->
+             <div class="form-group mt-2">
+               <label for="">Last Name</label>
+               <input type="text" name="lastname" id="" value="{{values.last_name}}"
+               class="form-control" >
+             </div> 
+
+
+             <!--Phone-->
+             <div class="form-group mt-2">
+               <label for="">Phone</label>
+               <input type="text" name="phone" id="" value="{{values.phone}}"
+               class="form-control" >
+             </div> 
+
+
+                <!--Email-->
+             <div class="form-group mt-2">
+               <label for="">Email</label>
+               <input required type="email" name="email" id="" value="{{values.email}}"
+               class="form-control" placeholder="example@gmail.com">
+             </div> 
+             
+              <!--Password-->
+             <div class="form-group mt-2">
+               <label for="">Password</label>
+               <input type="password" name="password" id="" 
+               class="form-control" placeholder="*******">
+             </div> 
+             
+
+            <div class="text-center form-group mt-4">
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+
+              
+
+
+
+
+            </form>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
